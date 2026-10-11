@@ -748,7 +748,6 @@ function inline(s){
   s=s.replace(/`([^`\n]+)`/g,(m,c)=>H('<code>'+esc(c)+'</code>'));
   s=s.replace(MATH_RE,(m,dd,sd,pp,br)=>{
     if(m==='\\$')return'\u0003';
-    if(sd!==undefined&&/\s$/.test(sd))return m;
     const tex=dd??sd??pp??br;
     return H(mathSpan(tex,dd!==undefined||br!==undefined));
   });
